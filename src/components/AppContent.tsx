@@ -1,7 +1,8 @@
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { TrueSheet } from '@lodev09/react-native-true-sheet';
 import { useRef } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FlashList } from '@shopify/flash-list';
 
 function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
@@ -16,7 +17,7 @@ function AppContent() {
         />
         <TrueSheet ref={sheetRef} scrollable>
           <View style={styles.sheetContent}>
-            <FlatList
+            <FlashList
               nestedScrollEnabled
               data={Array.from({ length: 100 }).map((_, index) => ({ index }))}
               keyExtractor={item => item.index.toString()}
